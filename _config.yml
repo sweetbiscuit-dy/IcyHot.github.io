@@ -44,11 +44,11 @@ social:
     - https://www.linkedin.com/in/yu-ding-4692872a2
     # - https://www.facebook.com/username
 
-plugins:
-  - jekyll-avatar
+#plugins:
+#  - jekyll-avatar
 
-whitelist:
-  - jekyll-avatar
+#whitelist:
+#  - jekyll-avatar
 
 # Site Verification Settings
 webmaster_verifications:
@@ -104,7 +104,7 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-# avatar: '/assets/avatar.JPG'
+avatar: 'images/avatar.JPG'
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
