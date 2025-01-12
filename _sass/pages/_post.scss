@@ -220,40 +220,50 @@ header {
 @-webkit-keyframes fade-up {
   from {
     opacity: 0;
-    position: relative;
-    top: 2rem;
+    margin-top: 4rem;
   }
 
   to {
     opacity: 1;
-    position: relative;
-    top: 0;
   }
 }
 
 @keyframes fade-up {
   from {
     opacity: 0;
-    position: relative;
-    top: 2rem;
+    margin-top: 4rem;
   }
 
   to {
     opacity: 1;
-    position: relative;
-    top: 0;
   }
 }
 
 /* TOC panel */
-#toc-wrapper {
-  border-left: 1px solid rgba(158, 158, 158, 0.17);
+
+%top-cover {
+  content: '';
+  display: block;
   position: -webkit-sticky;
   position: sticky;
-  top: 4rem;
+  top: 0;
+  width: 100%;
+  height: 3rem;
+  background: linear-gradient(var(--main-bg) 50%, transparent);
+}
+
+#toc-wrapper {
+  top: 0;
   transition: top 0.2s ease-in-out;
-  -webkit-animation: fade-up 0.8s;
-  animation: fade-up 0.8s;
+  overflow-y: auto;
+  max-height: 100vh;
+  scrollbar-width: none;
+  margin-top: 2rem;
+
+  &:not(.invisible) {
+    -webkit-animation: fade-up 0.8s;
+    animation: fade-up 0.8s;
+  }
 
   ul {
     list-style: none;
@@ -262,12 +272,8 @@ header {
     padding-left: 0;
 
     li {
-      &:not(:last-child) {
-        margin: 0.4rem 0;
-      }
-
       a {
-        padding: 0.2rem 0 0.2rem 1.25rem;
+        padding: 0.4rem 0 0.4rem 1.25rem;
       }
     }
 
@@ -295,7 +301,6 @@ header {
       &::before {
         display: inline-block;
         width: 1px;
-        left: -1px;
         height: 1.25rem;
         background-color: var(--toc-highlight) !important;
       }
@@ -304,6 +309,30 @@ header {
     ul {
       padding-left: 0.75rem;
     }
+  }
+
+  @at-root .toc-border-cover {
+    @extend %top-cover;
+
+    margin-bottom: -4rem;
+  }
+
+  &::before {
+    @extend %top-cover;
+  }
+
+  &::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    width: 15%;
+    height: 2.25rem;
+    margin-left: -1px;
+    background: linear-gradient(transparent, var(--main-bg) 70%);
+  }
+
+  > * {
+    @extend %panel-border;
   }
 }
 
