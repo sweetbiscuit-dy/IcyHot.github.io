@@ -45,10 +45,8 @@ social:
     # - https://www.facebook.com/username
 
 #plugins:
-#  - jekyll-avatar
 
 #whitelist:
-#  - jekyll-avatar
 
 # Site Verification Settings
 webmaster_verifications:
